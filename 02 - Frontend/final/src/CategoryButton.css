@@ -1,0 +1,36 @@
+.category-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 999px;
+    background-color: #f0f0f0;
+    color: #333;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .category-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .category-button.active {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  .category-button .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+   
+  .category-button .label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
