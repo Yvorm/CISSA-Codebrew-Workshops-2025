@@ -64,7 +64,8 @@ button:hover {
   justify-content: space-between; /* Space between note title and button */
 }
 
-.app-sidebar-note button {
+.app-sidebar-note button { /* Uniquely affects `button` (i.e. delete) elements 
+    within this class`*/ 
   color: crimson;
 }
 
@@ -78,12 +79,12 @@ button:hover {
 }
 
 .app-sidebar-note:hover {
-  background: #ddd;
+  background: #caddbd;
 }
 
 .app-sidebar-note.active,
 .app-sidebar-note.active small {
-  background: #08c;
+  background: rgb(84, 162, 50);
   color: white;
 }
 
