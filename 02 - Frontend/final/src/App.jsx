@@ -8,15 +8,23 @@ import './MainContent.css';
 
 function App() {
   
-    //Create state array to save notes
+
+    // The below states/functions are created in this "higher-order" component (that contains the other components) as they 
+    // contain information needed concurrently in BOTH "child" components (Sidebar and MainComponent)
+
+    //Create state to save notes, and set it to be an empty array by default. Note that `setNotes` is state-setter 
     const [notes, setNotes] = useState([]);
 
     // State to store the currently edited note. Default value is `false`.
     const [activeNote, setActiveNote] = useState(false);
 
+    
+    // NOTE: All of the below functions are defined in the main `App` component as they 
+    // rely on the `notes` state and `setNotes`, which we have chosen not passed into child 
+    // components for abstraction's sake.
+    
+
     // This is a function to add a new note, defined using arrow notation.
-    // All of the below functions are defined in the main `App` component as they 
-    // rely on the `notes` state.
     const onAddNote = () => {
 
     console.log("Added new note");
@@ -37,12 +45,12 @@ function App() {
     setNotes([newNote, ...notes])
     }
 
-    // This function deletes a specified note, and is defined using conventional notation.
+    // This function deletes a specified note, and is defined using "conventional" notation more resembling of python.
     function onDeleteNote(idToDelete) {
 
-    console.log("Removed note");
+    console.log("Deleted note");
 
-    //Explaination: For each `note` in `notes`, filter out items for which the given 
+    // Explaination: For each `note` in `notes`, filter OUT (eliminate) items for which the given 
     // condition (i.e. `note.id` == `idToDelete`) is TRUE. The remaining items will be made 
     // into the new `notes` state. 
     setNotes(notes.filter((note) => note.id !== idToDelete))
@@ -77,6 +85,7 @@ function App() {
 
     <div className='App'>
 
+    {/*Here we are passing a variety of states, state-setters and functions as props, so that other components can access them*/}
     <Sidebar notes={notes} onAddNote={onAddNote} onDeleteNote={onDeleteNote} activeNote={activeNote} setActiveNote={setActiveNote}/>
     
     {/*NOTE that here we WANT the `getActiveNote` function to be called (and it's result passed into MainContent) every time it renders. 

@@ -6,11 +6,15 @@ import ReactMarkdown from "react-markdown";
 function MainContent({activeNote, onUpdateNote}) {
 
     function onEditField(textFieldKey, editedValue) {
-        // We need to pass through a NEW note, with the new info, EXCEPT id.
+        // We need to pass through a NEW note with the edited info, but SAME id as the current 
+        // version of the note, so it acts as a replacement
         onUpdateNote({
-            // This spreads out the elements of the active note.
+            // This spreads out the elements (id, title, body, lastModified) of the 
+            // active note.
             ...activeNote,
-            
+
+            // As the below lines are executed after the above, this section will overwrites the relevant field 
+            // (either title or body) with editedValue, and update the lastModified field with the current time
             [textFieldKey]: editedValue,
             lastModified: Date.now(),
         });
