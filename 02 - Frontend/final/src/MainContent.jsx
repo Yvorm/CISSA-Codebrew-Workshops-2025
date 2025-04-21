@@ -1,3 +1,8 @@
+
+// Note the capitalisation! This is an import of a COMPONENT, which will help us render markdown!
+import ReactMarkdown from "react-markdown";
+
+
 function MainContent({activeNote, onUpdateNote}) {
 
     function onEditField(textFieldKey, editedValue) {
@@ -7,7 +12,7 @@ function MainContent({activeNote, onUpdateNote}) {
             ...activeNote,
             
             [textFieldKey]: editedValue,
-            lastModified: Date.now()
+            lastModified: Date.now(),
         });
     };
 
@@ -23,8 +28,8 @@ function MainContent({activeNote, onUpdateNote}) {
     return (
         <div className="app-main">
             <div className = "app-main-note-edit">
-                <input type="text" id="title" placeholder="Title here..." value = {activeNote.title} autoFocus />
-                <textarea id="body" placeholder="Write your note here..." value = {activeNote.body}/>
+                <input type="text" id="title" placeholder="Title here..." value = {activeNote.title} onChange={(e) => onEditField("title", e.target.value)} autoFocus />
+                <textarea id="body" placeholder="Write your note here..." value = {activeNote.body} onChange={(e) => onEditField("body", e.target.value)}/>
             </div>
 
             {/* Whatever the current activeNote is, preview it's stored information*/}
@@ -33,11 +38,11 @@ function MainContent({activeNote, onUpdateNote}) {
                 <h1 className="preview-title"> 
                     {activeNote.title}
                 </h1>
-
                 <div className="markdown-preview">
-                    {activeNote.body}
+                    <ReactMarkdown >
+                        {activeNote.body}
+                    </ReactMarkdown>
                 </div>
-
             </div>    
         </div>
     );

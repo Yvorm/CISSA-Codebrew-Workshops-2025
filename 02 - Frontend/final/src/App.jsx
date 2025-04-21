@@ -3,6 +3,8 @@ import MainContent from './MainContent';
 import Sidebar from './Sidebar';
 import uuid from  "react-uuid";
 import './App.css';
+import './Sidebar.css';
+import './MainContent.css';
 
 function App() {
   
