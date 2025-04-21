@@ -1,0 +1,33 @@
+If anyone has any questions regarding this - pls ask me! Took me ages to write this o7
+
+
+(5-10 min) First, explain the static jsx markdown present in the starter files. Go in the following order:
+1. Main.jsx (Explain the purpose of the App component)
+2. App.jsx (Show that the two main sections of the app have been created as two distinct)
+3. Sidebar.jsx (Introduce the concept of `className`s as an example of metadata added to markdown elements, and open the associated CSS file to comment on the classes involved. MAKE SURE TO POINT OUT HOW THE NOTES.HOVER FIELD IN THE CSS CHANGES THE COLOUR TO EMPHASISE ITS IMPORTANCE)
+4. MainContent.jsx (Same as for Sidebar.jsx)
+
+By this point, attendees should understand the rough layout of the frontend, and that it is utterly static rn.
+
+Outline the functionality we want it to have:
+1. Adding new notes (and have a page for when there is no note)
+2. Live updating the sidebar to show the notes that exist.
+3. Deleting unneeded notes
+4. Selecting a specific note (and displaying it's content)
+5. Editing a selected note (and saving the note)
+
+(Make sure react-uuid and react-markdown are installed before the next part)
+
+(15 min) Let's start with (1) - Adding notes.
+1. App.jsx: Add a notes state/setter, with a default value of `[]`.
+2. App.jsx: Create a `onAddNote` function that create a new const `newNote` with elements (id, title, body, and lastmodified) and add it to the `notes` array.
+    ^^ the final line should look like this: setNotes([newNote, ...notes])
+3. App.jsx: Add the function as a prop!
+4. Sidebar.jsx: Make the function called upon clicking the `Add Note` button.
+
+(15 min) Now for (2) - to display the contents of the current notes.
+1. Pass the notes array as a prop to sidebar.jsx
+2. Create
+
+
+ 
